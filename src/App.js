@@ -4,6 +4,7 @@ import Books from './components/Books'
 import AddBook from './components/AddBook'
 
 function App() {
+  const [showAddBook, setShowAddBook] = useState(false)
   const [books, setBooks] = useState([
     {
       title: "The Fellowship of the Ring",
@@ -43,8 +44,11 @@ function App() {
   }
   return (
     <div className="App">
-      <Header title="Library" />
-      <AddBook onAdd={addBook} />
+      <Header title="Library" 
+          onAdd={() => setShowAddBook(!showAddBook)}
+          showAdd={showAddBook}
+      />
+      {showAddBook && <AddBook onAdd={addBook} />}
       <Books books={books} />
     </div>
   );
