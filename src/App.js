@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Header from './components/Header'
 import Books from './components/Books'
+import AddBook from './components/AddBook'
 
 function App() {
   const [books, setBooks] = useState([
@@ -29,9 +30,21 @@ function App() {
       read: true
     }
   ])
+
+  const addBook = ({ title, author, pages, read}) => {
+    let book = {
+      title: title,
+      author: author,
+      pages: pages,
+      read: read
+    }
+
+    setBooks([...books, book])
+  }
   return (
     <div className="App">
       <Header title="Library" />
+      <AddBook onAdd={addBook} />
       <Books books={books} />
     </div>
   );
