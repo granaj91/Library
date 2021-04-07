@@ -1,12 +1,12 @@
 :root {
-    
-    background-color: #12585c;
+    background-color:  #12585c;
 }
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    color: #f7f6eb;
   }
   
 .button {
@@ -24,8 +24,15 @@
 }
 .books {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    color: #f7f6eb;
     justify-content: space-between;
+}
+
+.book-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .book.read {
@@ -34,6 +41,7 @@
 .book {
     flex: 0 1 22%;
     padding: 0 5px 0 5px;
+    margin: 3px;
     border-radius: 3%;
     background-color: #f7f6eb;
     color: #3d3d3c;

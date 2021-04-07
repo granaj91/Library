@@ -8,7 +8,7 @@ const Books = ({ books, sort }) => {
             if (authorA < authorB) {
               return -1;
             }
-            if (authorA > author) {
+            if (authorA > authorB) {
               return 1;
             }
             return 0;
@@ -21,8 +21,8 @@ const Books = ({ books, sort }) => {
             <div className="book-container">
                 { unread.map((book) => (<Book key={book.id} book={book}/>))}
             </div>
-            <div>
-                <h3>Read Books</h3>
+            <div className="title-container">
+                <h3>Finished Books</h3>
             </div>
             <div className="book-container">
                 { read.map((book) => (<Book key={book.id} book={book}/>))}
