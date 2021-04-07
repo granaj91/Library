@@ -7,24 +7,28 @@ function App() {
   const [showAddBook, setShowAddBook] = useState(false)
   const [books, setBooks] = useState([
     {
-      title: "The Fellowship of the Ring",
-      author: "J.R.R. Tolkien",
-      pages: 423,
+      id: 1,
+      title: "Don Quixote",
+      author: "Miguel de Cervantes",
+      pages: 204,
       read: false
     },
     {
-      title: "The Two Towers",
-      author: "J.R.R. Tolkien",
-      pages: 352,
+      id: 2,
+      title: "The Silent Patient",
+      author: "Alex Michaelides",
+      pages: 325,
       read: false
     },
     {
-      title: "The Return of the King",
-      author: "J.R.R. Tolkien",
-      pages: 416,
+      id: 3,
+      title: "Find Me",
+      author: "Anne Frasier",
+      pages: 282,
       read: false
     },
     {
+      id: 4,
       title: "Gone Girl",
       author: "Gillian Flynn",
       pages: 432,
