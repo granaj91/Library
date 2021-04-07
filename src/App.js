@@ -48,7 +48,11 @@ function App() {
           onAdd={() => setShowAddBook(!showAddBook)}
           showAdd={showAddBook}
       />
-      {showAddBook && <AddBook onAdd={addBook} />}
+      {showAddBook && 
+        <div className="form-container">
+          <AddBook onAdd={addBook} onClose={() => setShowAddBook(!showAddBook)}/>
+        </div>
+      }
       <Books books={books} />
     </div>
   );

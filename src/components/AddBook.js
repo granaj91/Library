@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const AddBook = ({ onAdd }) => {
+const AddBook = ({ onAdd, onClose }) => {
     const [title, setTitle] = useState('')
     const [author, setAuthor] = useState('')
     const [pages, setPages] = useState('')
@@ -47,6 +47,7 @@ const AddBook = ({ onAdd }) => {
             </div>
             <input type='submit' value='Add To Library' 
             className='button btn-block'/>
+            <button className="button close" onClick={ onClose }>Close</button>
         </form>
     )
 }
