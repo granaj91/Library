@@ -8,7 +8,7 @@ const Books = ({ books, sort }) => {
             if (authorA < authorB) {
               return -1;
             }
-            if (authorA > authorB) {
+            if (authorA > author) {
               return 1;
             }
             return 0;
