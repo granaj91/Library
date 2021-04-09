@@ -13,7 +13,7 @@ const AddBook = ({ onAdd, onClose }) => {
             alert('Please add a book')
             return
         }
-
+        onClose();
         onAdd({ title, author, pages, read })
         setTitle('')
         setAuthor('')
@@ -46,7 +46,7 @@ const AddBook = ({ onAdd, onClose }) => {
                 onChange={(e) => setRead(e.currentTarget.checked)}/>
             </div>
             <input type='submit' value='Add To Library' 
-            className='button btn-block'/>
+            className='button btn-block' />
             <button className="button close" onClick={ onClose }>Close</button>
         </form>
     )
