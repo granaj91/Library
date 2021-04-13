@@ -1,10 +1,13 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { GlobalContext } from '../context/GlobalState'
 
-const AddBook = ({ onAdd, onClose }) => {
+const AddBook = ({ onClose }) => {
     const [title, setTitle] = useState('')
     const [author, setAuthor] = useState('')
     const [pages, setPages] = useState('')
     const [read, setRead] = useState(false)
+
+    const { addBook } = useContext(GlobalContext)
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -14,7 +17,17 @@ const AddBook = ({ onAdd, onClose }) => {
             return
         }
         onClose();
-        onAdd({ title, author, pages, read })
+
+        const newBook = {
+            id: Math.floor(Math.random() * 100000000),
+            title,
+            author,
+            pages,
+            read
+        }
+        
+        addBook(newBook);
+        
         setTitle('')
         setAuthor('')
         setPages('')

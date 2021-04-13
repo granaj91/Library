@@ -1,6 +1,15 @@
 import Book from './Book'
+import { useContext, useEffect } from 'react'
+import { GlobalContext } from '../context/GlobalState'
 
-const Books = ({ books, sort }) => {
+const Books = ({ sort }) => {
+    const { books, getBooks } = useContext(GlobalContext);
+
+    useEffect(() => {
+        getBooks();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     if(sort === "author"){
         books.sort((a, b) => {
             const authorA = a.author.toLowerCase();
