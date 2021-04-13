@@ -16,7 +16,7 @@ cd Library
 4. Choose a provider (I used AWS) and click create cluster
 
 ### Set environment variables
-Create a .env file and copy the .env.example contents into it.
+Create a .env file in the config directory and copy the .env.example contents into it.
 
 After the cluster has been created, click on connect. In the setup connection security add your IP address and create a Database User, be sure to copy your password (you will need it when setting up the environment variables). I recommend temporarily pasting it at the end of your .env since you will need to copy the connection string in the next step.
 
