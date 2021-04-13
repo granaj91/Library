@@ -29,6 +29,14 @@ To run the app in development mode, run the command:
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+To remove the containers created by docker-compose, run the command:
+
+`docker-compose down`
+
+To rebuild the docker images after making an edit, run the command:
+
+`docker-compose up --build`
+
 ## Running the application locally
 ### Install dependencies
 ```
