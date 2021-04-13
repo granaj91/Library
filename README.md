@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# Library
+This application allows you to add books that you've read and want to read to a library.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Getting Started
+## Clone the code into a fresh folder
+```
+git clone https://github.com/granaj91/Library.git
+cd Library
+```
 
-## Available Scripts
+## Create your own mongoDB database and set your environment variables
+### Creating a mongoDB database
+1. Create an account or login to [mongoDB](https://account.mongodb.com/account/login)
+2. Click on build a cluster
+3. Click create a cluster under Starter Clusters (Free)
+4. Choose a provider (I used AWS) and click create cluster
 
-In the project directory, you can run:
+### Set environment variables
+Create a .env file in the config directory and copy the .env.example contents into it.
 
-### `npm start`
+#### Connect to your mongoDB database
+After your mongoDB cluster has been created, click on connect. 
 
-Runs the app in the development mode.\
+In setup connection security add your IP address and create a Database User, be sure to copy your password (you will need it when setting up the environment variables). I recommend temporarily pasting it at the end of your .env since you will need to copy the connection string in the next step.
+
+In choose a connection method, click on connect your application and copy the connection string. Replace YOUR_DATABASE_URI in your .env with this connection string. Replace <password> with the password that you copied from creating a Database User.
+
+## Running the application with docker
+To run the app in development mode, run the command: 
+```
+docker-compose up
+```
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+To remove the containers created by docker-compose, run the command: 
+```
+docker-compose down
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To rebuild the docker images after making an edit, run the command: 
+```
+docker-compose up --build
+```
 
-### `npm run build`
+## Running the application locally
+### Install dependencies
+```
+npm install
+cd client npm install
+cd ..
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Run the application
+To run the app in development mode, open the package.json in the client and replace:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+"proxy": "http://server:8000"
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+with:
 
-### `npm run eject`
+```
+"proxy": "http://localhost:8000"
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+While in the Library directory, run the command: 
+```
+npm run dev
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The page will reload if you make edits.
