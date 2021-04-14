@@ -40,7 +40,6 @@
     flex-wrap: wrap;
     justify-content: flex-start;
 }
-
 .book.read {
     background: silver;
 }
@@ -109,4 +108,8 @@
 .form-control-check input {
     flex: 1 1;
     height: 15px;
+}
+.empty-library {
+    color: #bbbab3;
+    text-align: center;
 }
