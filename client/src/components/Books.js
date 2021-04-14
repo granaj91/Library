@@ -26,17 +26,19 @@ const Books = ({ sort }) => {
     const unread = books.filter((book) => (!book.read))
     const read = books.filter((book) => (book.read))
     return (
-        <div className="books">
-            <div className="book-container">
-                { unread.map((book) => (<Book key={book.id} book={book}/>))}
-            </div>
-            <div className="title-container">
-                <h3>Finished Books</h3>
-            </div>
-            <div className="book-container">
-                { read.map((book) => (<Book key={book.id} book={book}/>))}
-            </div>
-        </div>
+        <>
+            {(books.length > 0) ? <div className="books">
+                <div className="book-container">
+                    { unread.map((book) => (<Book key={book.id} book={book}/>))}
+                </div>
+                <div className="title-container">
+                    <h3>Finished Books</h3>
+                </div>
+                <div className="book-container">
+                    { read.map((book) => (<Book key={book.id} book={book}/>))}
+                </div>
+            </div>: <h3 className="empty-library">Your library is empty. Please add a book.</h3>}
+        </>
     )
 }
 

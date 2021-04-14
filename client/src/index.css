@@ -22,19 +22,24 @@
     font-size: 15px;
     font-family: inherit;
 }
+.delete-button {
+    display: none;
+    border: none;
+    background: none;
+    float: right;
+    outline: none;
+}
 .books {
     display: flex;
     flex-direction: column;
     color: #f7f6eb;
     justify-content: space-between;
 }
-
 .book-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
 }
-
 .book.read {
     background: silver;
 }
@@ -48,6 +53,10 @@
 }
 .book:hover{
     box-shadow: 5px 5px 10px #222222;
+}
+.book:hover .delete-button{
+    display: inline-block;
+    cursor: pointer;
 }
 .form-container {
     position: fixed; /* Stay in place */
@@ -99,4 +108,8 @@
 .form-control-check input {
     flex: 1 1;
     height: 15px;
+}
+.empty-library {
+    color: #bbbab3;
+    text-align: center;
 }
