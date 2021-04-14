@@ -9,7 +9,7 @@ export default (state, action) => {
       case 'DELETE_BOOK':
         return {
           ...state,
-          books: state.books.filter(book => book.id !== action.payload)
+          books: state.books.filter(book => book._id !== action.payload)
         }
       case 'ADD_BOOK':
         return {
