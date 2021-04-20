@@ -23,7 +23,7 @@ After your mongoDB cluster has been created, click on connect.
 
 In setup connection security add your IP address and create a Database User, be sure to copy your password (you will need it when setting up the environment variables). I recommend temporarily pasting it at the end of your .env since you will need to copy the connection string in the next step.
 
-In choose a connection method, click on connect your application and copy the connection string. Replace YOUR_DATABASE_URI in your .env with this connection string. Replace <password> with the password that you copied from creating a Database User.
+In choose a connection method, click on connect your application and copy the connection string. Replace YOUR_DATABASE_URI in your .env with this connection string. Replace \<password\> with the password that you copied from creating a Database User.
 
 ## Running the application with docker
 To run the app in development mode, run the command: 
