@@ -22,13 +22,6 @@
     font-size: 15px;
     font-family: inherit;
 }
-.delete-button {
-    display: none;
-    border: none;
-    background: none;
-    float: right;
-    outline: none;
-}
 .books {
     display: flex;
     flex-direction: column;
@@ -53,10 +46,6 @@
 }
 .book:hover{
     box-shadow: 5px 5px 10px #222222;
-}
-.book:hover .delete-button{
-    display: inline-block;
-    cursor: pointer;
 }
 .form-container {
     position: fixed; /* Stay in place */
@@ -113,3 +102,45 @@
     color: #bbbab3;
     text-align: center;
 }
+
+.book:hover .dropdown {
+    display: block;
+}
+
+.dropbutton {
+    background: none;
+    font-size: 20px;
+    border: none;
+  }
+  
+.dropdown {
+    display: none;
+    position: relative;
+    float: right;
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: None;
+    min-width: 80px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content button {
+    color: black;
+    min-width: 80px;
+    padding: 10px 14px;
+    text-decoration: none;
+    display: block;
+    outline: none;
+    border: none;
+    background-color: #f7f6eb;
+}
+  
+.dropdown-content button:hover {background-color: #ddd;}
+  
+.dropdown:hover .dropdown-content {display: block;}
+  
+.dropdown:hover .dropbutton {display: none}

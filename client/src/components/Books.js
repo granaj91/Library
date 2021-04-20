@@ -2,7 +2,7 @@ import Book from './Book'
 import { useContext, useEffect } from 'react'
 import { GlobalContext } from '../context/GlobalState'
 
-const Books = ({ sort }) => {
+const Books = ({ sort, onUpdate }) => {
     const { books, getBooks } = useContext(GlobalContext);
 
     useEffect(() => {
@@ -29,13 +29,13 @@ const Books = ({ sort }) => {
         <>
             {(books.length > 0) ? <div className="books">
                 <div className="book-container">
-                    { unread.map((book) => (<Book key={book.id} book={book}/>))}
+                    { unread.map((book) => (<Book key={book.id} book={book} onUpdate={onUpdate}/>))}
                 </div>
                 <div className="title-container">
                     <h3>Finished Books</h3>
                 </div>
                 <div className="book-container">
-                    { read.map((book) => (<Book key={book.id} book={book}/>))}
+                    { read.map((book) => (<Book key={book.id} book={book} onUpdate={onUpdate}/>))}
                 </div>
             </div>: <h3 className="empty-library">Your library is empty. Please add a book.</h3>}
         </>

@@ -1,3 +1,4 @@
+const { findById } = require('../models/Book');
 const Book = require('../models/Book');
 
 // @desc    Get all books
@@ -49,6 +50,35 @@ exports.addBook = async (req, res, next) => {
                 error: 'Server error'
             });
         }
+    }
+}
+
+// @desc    Update book
+// @route   PUT /api/v1/books/:id
+// @access  Public
+exports.updateBook = async (req, res, next) => {
+    try{
+        const book = await Book.findById(req.params.id);
+
+        if(!book){
+            return res.status(404).json({
+                success: false,
+                error: "No book found"
+            });
+        }
+
+        await book.update(req.body)
+
+        return res.status(200).json({
+            success: true,
+            data: book
+        });
+
+    } catch(err){
+        return res.status(500).json({
+            success: false,
+            error: 'Server error'
+        });
     }
 }
 

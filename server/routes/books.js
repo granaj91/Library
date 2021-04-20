@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getBooks, addBook, deleteBook } = require('../controllers/books');
+const { getBooks, addBook, deleteBook, updateBook } = require('../controllers/books');
 
 router
     .route('/')
@@ -9,6 +9,7 @@ router
 
 router
     .route('/:id')
+    .put(updateBook)
     .delete(deleteBook);
 
 module.exports = router;

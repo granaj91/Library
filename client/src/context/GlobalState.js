@@ -73,13 +73,37 @@ export const GlobalProvider = ({ children }) => {
     
   }
 
+  async function updateBook(book) {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    try {
+      const res = await axios.put(`/api/v1/books/${book._id}`, book, config);
+      console.log(res.data)
+      dispatch({
+        type: 'UPDATE_BOOK',
+        payload: res.data.data
+      });
+    } catch (err) {
+      dispatch({
+        type: 'BOOK_ERROR',
+        payload: err.response.data.error
+      });
+    }
+    
+  }
+
   return (<GlobalContext.Provider value={{
     books: state.books,
     loading: state.loading,
     error: state.error,
     getBooks,
     deleteBook,
-    addBook
+    addBook,
+    updateBook
   }}>
     {children}
   </GlobalContext.Provider>);
