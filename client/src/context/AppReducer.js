@@ -16,6 +16,11 @@ export default (state, action) => {
           ...state,
           books: [...state.books, action.payload]
         }
+      case 'UPDATE_BOOK':
+        return {
+          ...state,
+          books: state.books.map(book => book)
+        }
       case 'BOOK_ERROR':
         return {
           ...state,
