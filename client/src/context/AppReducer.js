@@ -1,4 +1,4 @@
-export default (state, action) => {
+const AppReducer = (state, action) => {
     switch(action.type) {
       case 'GET_BOOKS':
         return {
@@ -21,6 +21,11 @@ export default (state, action) => {
           ...state,
           books: state.books.map(book => book)
         }
+      case 'SET_SORTBY':
+        return {
+          ...state,
+          sortby: action.payload
+        }
       case 'BOOK_ERROR':
         return {
           ...state,
@@ -30,3 +35,5 @@ export default (state, action) => {
         return state;
     }
 }
+
+export default AppReducer
