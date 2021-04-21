@@ -39,17 +39,17 @@ const AddBook = ({ onClose }) => {
             <div className='form-control'>
                 <label>Title</label>
                 <input type='text' placeholder='Book Title' 
-                value={title} onChange={(e) => setTitle(e.target.value)}/>
+                value={title} onChange={(e) => setTitle(e.target.value)} required={true}/>
             </div>
             <div className='form-control'>
                 <label>Author</label>
                 <input type='text' placeholder='Book Author' 
-                value={author} onChange={(e) => setAuthor(e.target.value)}/>
+                value={author} onChange={(e) => setAuthor(e.target.value)} required={true}/>
             </div>
             <div className='form-control'>
                 <label>Number of Pages</label>
                 <input type='number' min="1"
-                value={pages} onChange={(e) => setPages(e.target.value)}/>
+                value={pages} onChange={(e) => setPages(e.target.value)} required={true}/>
             </div>
             <div className='form-control form-control-check'>
                 <label>Finished Reading</label>
