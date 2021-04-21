@@ -5,6 +5,7 @@ import axios from 'axios';
 // Initial state
 const initialState = {
   books: [],
+  sortby: "author",
   error: null,
   loading: true
 }
@@ -82,7 +83,7 @@ export const GlobalProvider = ({ children }) => {
 
     try {
       const res = await axios.put(`/api/v1/books/${book._id}`, book, config);
-      console.log(res.data)
+
       dispatch({
         type: 'UPDATE_BOOK',
         payload: res.data.data
@@ -92,18 +93,33 @@ export const GlobalProvider = ({ children }) => {
         type: 'BOOK_ERROR',
         payload: err.response.data.error
       });
-    }
-    
+    } 
+  }
+
+  function setSortBy(sort){
+    try {
+      dispatch({
+        type: 'SET_SORTBY',
+        payload: sort
+      });
+    } catch (err) {
+      dispatch({
+        type: 'BOOK_ERROR',
+        payload: err.response.data.error
+      });
+    } 
   }
 
   return (<GlobalContext.Provider value={{
     books: state.books,
+    sortby: state.sortby,
     loading: state.loading,
     error: state.error,
     getBooks,
     deleteBook,
     addBook,
-    updateBook
+    updateBook,
+    setSortBy
   }}>
     {children}
   </GlobalContext.Provider>);
