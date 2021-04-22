@@ -1,14 +1,29 @@
-FROM node:15-alpine3.10
+# Build react client
+FROM node:15-alpine3.10 as client
 
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+WORKDIR /usr/app/client
 
-COPY package*.json ./
+COPY client/package*.json ./
 
 RUN npm install --silent
 
-COPY . .
+COPY client/ ./
+
+RUN npm run build
+
+# Build server
+FROM node:15-alpine3.10
+
+WORKDIR /usr/src/app
+COPY --from=client /usr/app/client/build/ ./client/build/
+
+WORKDIR /usr/src/app/server/
+COPY server/package*.json ./
+
+RUN npm install --silent
+
+COPY server/ ./
 
 EXPOSE 8000
 
-CMD ["npm", "run", "server"]
+CMD ["npm", "start"]

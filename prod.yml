@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+  web-app:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongo
+    env_file: ./server/config/.env
+    environment:
+      - NODE_ENV=production
+    networks:
+      - app-network
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+
+networks:
+    app-network:
+        driver: bridge

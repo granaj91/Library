@@ -26,48 +26,81 @@ In setup connection security add your IP address and create a Database User, be 
 In choose a connection method, click on connect your application and copy the connection string. Replace YOUR_DATABASE_URI in your .env with this connection string. Replace \<password\> with the password that you copied from creating a Database User.
 
 ## Running the application with docker
-To run the app in development mode, run the command: 
-```
-docker-compose up
-```
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-
-To remove the containers created by docker-compose, run the command: 
-```
-docker-compose down
-```
-
-To rebuild the docker images after making an edit, run the command: 
-```
-docker-compose up --build
-```
-
-## Running the application locally
-### Install dependencies
-```
-npm install
-cd client npm install
-cd ..
-```
-
-### Run the application
-To run the app in development mode, open the package.json in the client and replace:
+### Production
+To run the app in production mode, run the command:
 
 ```
-"proxy": "http://server:8000"
+docker-compose -f prod.yml up
 ```
 
-with:
+Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
+
+### Development
+To run the app in development mode, first open the package.json in the client and replace:
 
 ```
 "proxy": "http://localhost:8000"
 ```
 
-While in the Library directory, run the command: 
+with:
+
+```
+"proxy": "http://server:8000"
+```
+*Note: server is a service that will be created with docker-compose and is where the client can make API requests from*
+
+then run the following command from the Library directory:
+
+```
+docker-compose -f dev.yml up
+```
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+### Removing containers created by docker-compose
+Run the following command: 
+```
+docker-compose -f <file.yml> down
+```
+*Replace \<file.yml\> with either prod.yml or dev.yml, depending on which file you ran*
+
+### Rebuilding images
+To rebuild the docker images after making an edit, run the following command: 
+```
+docker-compose -f <file.yml> up --build
+```
+*Replace \<file.yml\> with either prod.yml or dev.yml, depending on which file you edited*
+
+## Running the application locally
+### Install dependencies
+```
+cd client 
+npm install
+cd server
+npm install
+```
+
+### Run the application
+#### Production
+In your .env file, set NODE_ENV=production
+
+From the client directory, run the following command to create a build folder:
+```
+npm run build
+```
+
+From the server directory, run the following command to run the application:
+```
+npm start
+```
+
+Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
+
+#### Development
+While in the server directory, run the command: 
 ```
 npm run dev
 ```
+*Make sure NODE_ENV=development in your .env and the proxy in the client package.json is http://localhost:8000*
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.
