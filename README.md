@@ -47,7 +47,7 @@ with:
 ```
 "proxy": "http://server:8000"
 ```
-*server is a service that will be created with docker-compose and is where the client can make API requests from*
+*Note: server is a service that will be created with docker-compose and is where the client can make API requests from*
 
 then run the following command from the Library directory:
 
