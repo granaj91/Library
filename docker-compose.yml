@@ -2,12 +2,12 @@ version: '3.7'
 
 services:
   server:
-    build: .
+    build: ./server
     ports:
       - "8000:8000"
     depends_on:
       - mongo
-    env_file: ./config/.env
+    env_file: ./server/config/.env
     networks:
       - app-network
   mongo:
