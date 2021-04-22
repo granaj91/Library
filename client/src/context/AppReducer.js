@@ -19,7 +19,7 @@ const AppReducer = (state, action) => {
       case 'UPDATE_BOOK':
         return {
           ...state,
-          books: state.books.map(book => book)
+          books: [...state.books]
         }
       case 'SET_SORTBY':
         return {
