@@ -2,7 +2,7 @@
   "name": "library",
   "version": "1.0.0",
   "description": "Backend for library.",
-  "main": "server/index.js",
+  "main": "index.js",
   "scripts": {
     "start": "node server",
     "server": "nodemon server",
@@ -18,7 +18,6 @@
   "bugs": {
     "url": "https://github.com/granaj91/Library/issues"
   },
-  "homepage": "https://github.com/granaj91/Library#readme",
   "dependencies": {
     "colors": "^1.4.0",
     "dotenv": "^8.2.0",
