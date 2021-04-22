@@ -67,7 +67,7 @@ exports.updateBook = async (req, res, next) => {
             });
         }
 
-        await book.update(req.body)
+        await book.updateOne(req.body)
 
         return res.status(200).json({
             success: true,
